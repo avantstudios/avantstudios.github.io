@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <title>Avant Studios</title>
+  <link rel="shortcut icon" href="img/logo2.png" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- BootStrap Css -->
+  <link rel="stylesheet" href="bootstrap-4.3.1-dist/css/bootstrap.css">
+
+  <!-- Jquery -->
+  <script src="jquery-3.3.1/jquery-3.3.1.min.js"></script>
+
+  <!-- BootStrap Js -->
+  <script src="bootstrap-4.3.1-dist/js/bootstrap.min.js"></script>
+
+  <!-- Style -->
+  <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+    <a href="#Home">
+      <img class="text-center" src="img/logo.png" width="70px">
+    </a>
+
+    <button class="navbar-toggler" data-target="#my-nav" data-toggle="collapse" aria-controls="my-nav"
+      aria-expanded="false" aria-label="Toggle navigation">
+
+      <span class="navbar-toggler-icon"></span>
+
+    </button>
+
+    <div id="my-nav" class="collapse navbar-collapse">
+
+      <ul class="navbar-nav mr-auto">
+
+        <li class="nav-item">
+          <a class="nav-link" href="#Images" tabindex="Images" aria-disabled="true">Images</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="#About" tabindex="About" aria-disabled="true">About</a>
+        </li>
+
+      </ul>
+    </div>
+  </nav>
+
+  <!-- IMAGES -->
+  <!-- OPEN MODAL-->
+  <div class="container">
+
+    <div class="row" style="margin-top: 150px">
+
+      <div class="col-xs-12">
+
+        <p class="text-center">
+
+          <!-- Img to Open the Modal -->
+          <img src="img/lixo_estelar.png" type="button" style="background: #a1a1a1;    
+              padding: 0.2em;
+              margin-right: 20px;
+              margin-bottom: 20px;
+              overflow: auto;
+              border-radius: 0.4em;" data-toggle="modal" data-target="#myModal1" width="300px">
+          </img>
+
+          <!-- Img to Open the Modal -->
+          <img src="img/lixo_estelar_gameplay.png" type="button" style="background: #a1a1a1;    
+                          padding: 0.2em;
+                          margin-right: 20px;
+                          margin-bottom: 20px;
+                          overflow: auto;
+                          border-radius: 0.4em;" data-toggle="modal" data-target="#myModal2" width="300px">
+          </img>
+
+          <!-- The Modal -->
+          <div class="modal fade" id="myModal1">
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                  <h4 class="modal-title">Lixo Estelar</h4>
+                  <button type="button" class="close" data-dismiss="modal">×</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-content">
+
+                  <img src="img/lixo_estelar.png" width="100%">
+                  </img>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+          <!-- The Modal -->
+          <div class="modal fade" id="myModal2">
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                  <h4 class="modal-title">Lixo Estelar - Game Play </h4>
+                  <button type="button" class="close" data-dismiss="modal">×</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-content">
+
+                  <img src="img/lixo_estelar_gameplay.png" width="100%">
+                  </img>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+      </div>
+
+      </p>
+
+    </div>
+
+  </div>
+
+  <!-- ABOUT -->
+  <div class="text-center">
+    <a href="https://play.google.com/store/apps/details?id=com.aventuras.lixo_estelar">
+      <img class="text-center" src="img/google-play-badge.png" width="200px">
+    </a>
+  </div>
+
+  <div class="card-footer" style="text-align: center">
+    © 2019 Avant Studios - Os melhores jogos. Todos os direitos reservados
+  </div>
+
+</html>
