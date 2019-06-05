@@ -47,7 +47,7 @@ gdjs.MenuCode.condition0IsTrue_0 = {val:false};
 gdjs.MenuCode.condition1IsTrue_0 = {val:false};
 
 
-gdjs.MenuCode.mapOfGDgdjs_46MenuCode_46GDPlayObjects1Objects = Hashtable.newFrom({"Play": gdjs.MenuCode.GDPlayObjects1});gdjs.MenuCode.eventsList0x77df54 = function(runtimeScene) {
+gdjs.MenuCode.mapOfGDgdjs_46MenuCode_46GDPlayObjects1Objects = Hashtable.newFrom({"Play": gdjs.MenuCode.GDPlayObjects1});gdjs.MenuCode.eventsList0x691fbc = function(runtimeScene) {
 
 {
 
@@ -63,7 +63,7 @@ gdjs.MenuCode.condition0IsTrue_0.val = gdjs.evtTools.input.cursorOnObject(gdjs.M
 }
 
 
-}; //End of gdjs.MenuCode.eventsList0x77df54
+}; //End of gdjs.MenuCode.eventsList0x691fbc
 gdjs.MenuCode.eventsList0xb2490 = function(runtimeScene) {
 
 {
@@ -75,7 +75,7 @@ gdjs.MenuCode.condition0IsTrue_0.val = gdjs.evtTools.input.isMouseButtonPressed(
 }if (gdjs.MenuCode.condition0IsTrue_0.val) {
 
 { //Subevents
-gdjs.MenuCode.eventsList0x77df54(runtimeScene);} //End of subevents
+gdjs.MenuCode.eventsList0x691fbc(runtimeScene);} //End of subevents
 }
 
 }
