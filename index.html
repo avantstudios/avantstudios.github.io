@@ -1,150 +1,97 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html>
 
 <head>
-  <title>Avant Studios</title>
-  <link rel="shortcut icon" href="img/logo2.png" />
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <!-- BootStrap Css -->
-  <link rel="stylesheet" href="bootstrap-4.3.1-dist/css/bootstrap.css">
-
-  <!-- Jquery -->
-  <script src="jquery-3.3.1/jquery-3.3.1.min.js"></script>
-
-  <!-- BootStrap Js -->
-  <script src="bootstrap-4.3.1-dist/js/bootstrap.min.js"></script>
-
-  <!-- Style -->
-  <link rel="stylesheet" href="css/style.css">
-
+    <meta charset=UTF-8 />
 </head>
+<style>
+    body {
+        overflow: hidden;
+        margin: 0;
+        padding: 0;
+        background: hsl(0, 0%, 10%);
+    }
+</style>
 
 <body>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-    <a href="#Home">
-      <img class="text-center" src="img/logo.png" width="70px">
-    </a>
+    <script src="three.min.js"></script>
+    <script src="GLTFLoader.js"></script>
+    <script src="OrbitControls.js"></script>
+    <script>
 
-    <button class="navbar-toggler" data-target="#my-nav" data-toggle="collapse" aria-controls="my-nav"
-      aria-expanded="false" aria-label="Toggle navigation">
+        let scene, camera, renderer;
+        function init() {
+            scene = new THREE.Scene();
+            scene.background = new THREE.Color(0xdddddd);
 
-      <span class="navbar-toggler-icon"></span>
+            camera = new THREE.PerspectiveCamera(0.5, window.innerWidth / window.innerHeight, 1, 5000);
+            camera.rotation.y = 45 / 180 * Math.PI;
+            camera.position.x = 100;
+            camera.position.y = 100;
+            camera.position.z = 1000;
 
-    </button>
+            controls = new THREE.OrbitControls(camera);
+            //controls.addEventListener('change', renderer);
 
-    <div id="my-nav" class="collapse navbar-collapse">
+            hlight = new THREE.AmbientLight(0x404040, 4);
+            scene.add(hlight);
 
-      <ul class="navbar-nav mr-auto">
+            directionalLight = new THREE.DirectionalLight(0xffffff, 1);
+            directionalLight.position.set(4.07625, 1.00545, 5.90386);
+            directionalLight.castShadow = true;
+            scene.add(directionalLight);
 
-        <li class="nav-item">
-          <a class="nav-link" href="#Images" tabindex="Images" aria-disabled="true">Images</a>
-        </li>
+            light = new THREE.PointLight(0xc4c4c4, 10);
+            light.position.set(4.07625, 1.00545, 5.90386);
+            //scene.add(light);
 
-        <li class="nav-item">
-          <a class="nav-link" href="#About" tabindex="About" aria-disabled="true">About</a>
-        </li>
+            light2 = new THREE.PointLight(0xc4c4c4, 10);
+            light2.position.set(500, 100, 0);
+            scene.add(light2);
 
-      </ul>
-    </div>
-  </nav>
+            light3 = new THREE.PointLight(0xc4c4c4, 10);
+            light3.position.set(0, 100, -500);
+            //scene.add(light3);
 
-  <!-- IMAGES -->
-  <!-- OPEN MODAL-->
-  <div class="container">
+            light4 = new THREE.PointLight(0xc4c4c4, 10);
+            light4.position.set(-500, 300, 500);
+            //scene.add(light4);
 
-    <div class="row" style="margin-top: 150px">
+            renderer = new THREE.WebGLRenderer({ antialias: true });
+            renderer.setSize(window.innerWidth, window.innerHeight);
 
-      <div class="col-xs-12">
+            document.body.appendChild(renderer.domElement);
 
-        <p class="text-center">
+            let loader = new THREE.GLTFLoader();
+            loader.load('moveis.glb', function (glb) {
 
-          <!-- Img to Open the Modal -->
-          <img src="img/lixo_estelar.png" type="button" style="background: #a1a1a1;    
-              padding: 0.2em;
-              margin-right: 20px;
-              margin-bottom: 20px;
-              overflow: auto;
-              border-radius: 0.4em;" data-toggle="modal" data-target="#myModal1" width="300px">
-          </img>
+                var parser = glb.parser;
+                console.log(parser.json.materials);
 
-          <!-- Img to Open the Modal -->
-          <img src="img/lixo_estelar_gameplay.png" type="button" style="background: #a1a1a1;    
-                          padding: 0.2em;
-                          margin-right: 20px;
-                          margin-bottom: 20px;
-                          overflow: auto;
-                          border-radius: 0.4em;" data-toggle="modal" data-target="#myModal2" width="300px">
-          </img>
+                material = new THREE.MeshBasicMaterial({
+                    color: 0x6666,
+                });
 
-          <!-- The Modal -->
-          <div class="modal fade" id="myModal1">
-            <div class="modal-dialog modal-dialog-centered">
-              <div class="modal-content">
+                mesh = new THREE.Mesh(new THREE.BoxBufferGeometry(1, 1, 20), material);
 
-                <!-- Modal Header -->
-                <div class="modal-header">
-                  <h4 class="modal-title">Lixo Estelar</h4>
-                  <button type="button" class="close" data-dismiss="modal">×</button>
-                </div>
+                //gltf = new THREE.MeshStandardMaterial();
 
-                <!-- Modal body -->
-                <div class="modal-content">
+                table = glb.scene.children[2];
+                //table.scale.set(1, 0.5, 0.5);
+                table.material = 0x6666;
 
-                  <img src="img/lixo_estelar.png" width="100%">
-                  </img>
+                scene.add(glb.scene);
+                //scene.add(mesh);
 
-                </div>
-
-              </div>
-
-            </div>
-
-          </div>
-
-          <!-- The Modal -->
-          <div class="modal fade" id="myModal2">
-            <div class="modal-dialog modal-dialog-centered">
-              <div class="modal-content">
-
-                <!-- Modal Header -->
-                <div class="modal-header">
-                  <h4 class="modal-title">Lixo Estelar - Game Play </h4>
-                  <button type="button" class="close" data-dismiss="modal">×</button>
-                </div>
-
-                <!-- Modal body -->
-                <div class="modal-content">
-
-                  <img src="img/lixo_estelar_gameplay.png" width="100%">
-                  </img>
-
-                </div>
-
-              </div>
-
-            </div>
-
-          </div>
-
-      </div>
-
-      </p>
-
-    </div>
-
-  </div>
-
-  <!-- ABOUT -->
-  <div class="text-center">
-    <a href="https://play.google.com/store/apps/details?id=com.aventuras.lixo_estelar">
-      <img class="text-center" src="img/google-play-badge.png" width="200px">
-    </a>
-  </div>
-
-  <div class="card-footer" style="text-align: center">
-    © 2019 Avant Studios - Os melhores jogos. Todos os direitos reservados
-  </div>
+                animate();
+            });
+        }
+        function animate() {
+            renderer.render(scene, camera);
+            requestAnimationFrame(animate);
+        }
+        init();
+    </script>
+</body>
 
 </html>
